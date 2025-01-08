@@ -1,0 +1,45 @@
+public class BuggyCodeExample {
+
+    // 1. Method to find the maximum number in an array
+    public static int findMax(int[] numbers) {
+        int max = numbers[0];  // Initialize max to the first element of the array
+        for (int i = 1; i < numbers.length; i++) { 
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+        return max;
+    }
+
+    // 2. Method to print the elements of an array
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {  // Fix loop condition to avoid out-of-bounds access
+            System.out.println(arr[i]);
+        }
+    }
+
+    // 3. Method to calculate the average of an array
+    public static double calculateAverage(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return (double) sum / numbers.length;  // Cast sum to double for accurate average calculation
+    }
+
+    // 4. Main method to test the above methods
+    public static void main(String[] args) {
+        int[] numbers = {1, -2, 3, 4, -5};
+
+        // Testing findMax method
+        int max = findMax(numbers);
+        System.out.println("Max: " + max);  // Should return the maximum value from the array
+
+        // Testing printArray method
+        printArray(numbers);  // Should print all elements of the array
+
+        // Testing calculateAverage method
+        double average = calculateAverage(numbers);
+        System.out.println("Average: " + average);  // Should print the correct average of the array
+    }
+}
